@@ -1,0 +1,12 @@
+diff -up vboot-utils-20130222gite6cf2c2/Makefile.cflags vboot-utils-20130222gite6cf2c2/Makefile
+--- vboot-utils-20130222gite6cf2c2/Makefile.cflags	2013-03-07 13:11:00.697225786 -0500
++++ vboot-utils-20130222gite6cf2c2/Makefile	2013-03-07 13:11:49.488465926 -0500
+@@ -124,7 +124,7 @@ CFLAGS ?= ${COMMON_FLAGS} \
+ else
+ # FIRMWARE_ARCH not defined; assuming local compile.
+ CC ?= gcc
+-CFLAGS += -DCHROMEOS_ENVIRONMENT -Wall -Werror # HEY: always want last two?
++CFLAGS += $(COMMON_FLAGS) -DCHROMEOS_ENVIRONMENT -Wall -Werror # HEY: always want last two?
+ endif
+ 
+ ifneq (${DEBUG},)

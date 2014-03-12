@@ -1,0 +1,25 @@
+diff -up vboot-utils-20130222gite6cf2c2/host/arch/arm/lib/crossystem_arch.c.unused vboot-utils-20130222gite6cf2c2/host/arch/arm/lib/crossystem_arch.c
+--- vboot-utils-20130222gite6cf2c2/host/arch/arm/lib/crossystem_arch.c.unused	2012-12-19 11:37:24.000000000 -0500
++++ vboot-utils-20130222gite6cf2c2/host/arch/arm/lib/crossystem_arch.c	2013-03-07 16:55:13.899853426 -0500
+@@ -81,6 +81,7 @@ static int ReadFdtValue(const char *prop
+   char filename[FNAME_SIZE];
+   FILE *file;
+   int data = 0;
++  size_t count;
+ 
+   snprintf(filename, sizeof(filename), FDT_BASE_PATH "/%s", property);
+   file = fopen(filename, "rb");
+@@ -89,8 +90,12 @@ static int ReadFdtValue(const char *prop
+     return E_FILEOP;
+   }
+ 
+-  fread(&data, 1, sizeof(data), file);
++  count = fread(&data, 1, sizeof(data), file);
+   fclose(file);
++  if (count < 0) {
++    fprintf(stderr, "Unable to read FDT property %s\n", property);
++    return E_FILEOP;
++  }
+ 
+   if (value)
+     *value = ntohl(data); /* FDT is network byte order */

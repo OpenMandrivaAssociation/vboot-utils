@@ -1,0 +1,12 @@
+diff -up vboot-utils-20130222gite6cf2c2/Makefile.pthread vboot-utils-20130222gite6cf2c2/Makefile
+--- vboot-utils-20130222gite6cf2c2/Makefile.pthread	2013-03-07 17:55:02.920179806 -0500
++++ vboot-utils-20130222gite6cf2c2/Makefile	2013-03-07 17:55:06.360237213 -0500
+@@ -861,7 +861,7 @@ ${BUILD}/tests/vboot_common2_tests: LDLI
+ ${BUILD}/tests/vboot_common3_tests: LDLIBS += ${CRYPTO_LIBS}
+ 
+ ${BUILD}/utility/bmpblk_utility: LD = ${CXX}
+-${BUILD}/utility/bmpblk_utility: LDLIBS = -llzma -lyaml
++${BUILD}/utility/bmpblk_utility: LDLIBS = -llzma -lyaml -lpthread
+ 
+ BMPBLK_UTILITY_DEPS = \
+ 	${BUILD}/utility/bmpblk_util.o \

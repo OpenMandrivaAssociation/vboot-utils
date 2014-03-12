@@ -1,0 +1,68 @@
+diff -up vboot-utils-20130222gite6cf2c2/cgpt/cgpt_add.c.werror vboot-utils-20130222gite6cf2c2/cgpt/cgpt_add.c
+--- vboot-utils-20130222gite6cf2c2/cgpt/cgpt_add.c.werror	2013-03-07 15:57:45.797727161 -0500
++++ vboot-utils-20130222gite6cf2c2/cgpt/cgpt_add.c	2013-03-07 16:07:02.987337266 -0500
+@@ -16,49 +16,49 @@ static const char* DumpCgptAddParams(con
+ 
+   buf[0] = 0;
+   snprintf(tmp, sizeof(tmp), "-i %d ", params->partition);
+-  strncat(buf, tmp, sizeof(buf));
++  strncat(buf, tmp, sizeof(tmp));
+   if (params->label) {
+     snprintf(tmp, sizeof(tmp), "-l %s ", params->label);
+-    strncat(buf, tmp, sizeof(buf));
++    strncat(buf, tmp, sizeof(tmp));
+   }
+   if (params->set_begin) {
+     snprintf(tmp, sizeof(tmp), "-b %llu ", (unsigned long long)params->begin);
+-    strncat(buf, tmp, sizeof(buf));
++    strncat(buf, tmp, sizeof(tmp));
+   }
+   if (params->set_size) {
+     snprintf(tmp, sizeof(tmp), "-s %llu ", (unsigned long long)params->size);
+-    strncat(buf, tmp, sizeof(buf));
++    strncat(buf, tmp, sizeof(tmp));
+   }
+   if (params->set_type) {
+     GuidToStr(&params->type_guid, tmp, sizeof(tmp));
+-    strncat(buf, "-t ", sizeof(buf));
+-    strncat(buf, tmp, sizeof(buf));
+-    strncat(buf, " ", sizeof(buf));
++    strncat(buf, "-t ", sizeof(tmp));
++    strncat(buf, tmp, sizeof(tmp));
++    strncat(buf, " ", sizeof(tmp));
+   }
+   if (params->set_unique) {
+     GuidToStr(&params->unique_guid, tmp, sizeof(tmp));
+-    strncat(buf, "-u ", sizeof(buf));
+-    strncat(buf, tmp, sizeof(buf));
+-    strncat(buf, " ", sizeof(buf));
++    strncat(buf, "-u ", sizeof(tmp));
++    strncat(buf, tmp, sizeof(tmp));
++    strncat(buf, " ", sizeof(tmp));
+   }
+   if (params->set_successful) {
+     snprintf(tmp, sizeof(tmp), "-S %d ", params->successful);
+-    strncat(buf, tmp, sizeof(buf));
++    strncat(buf, tmp, sizeof(tmp));
+   }
+   if (params->set_tries) {
+     snprintf(tmp, sizeof(tmp), "-T %d ", params->tries);
+-    strncat(buf, tmp, sizeof(buf));
++    strncat(buf, tmp, sizeof(tmp));
+   }
+   if (params->set_priority) {
+     snprintf(tmp, sizeof(tmp), "-P %d ", params->priority);
+-    strncat(buf, tmp, sizeof(buf));
++    strncat(buf, tmp, sizeof(tmp));
+   }
+   if (params->set_raw) {
+     snprintf(tmp, sizeof(tmp), "-A 0x%x ", params->raw_value);
+-    strncat(buf, tmp, sizeof(buf));
++    strncat(buf, tmp, sizeof(tmp));
+   }
+ 
+-  strncat(buf, "\n", sizeof(buf));
++  strncat(buf, "\n", sizeof(tmp));
+   return buf;
+ }
+ 
