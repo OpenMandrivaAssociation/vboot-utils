@@ -1,6 +1,6 @@
 Name:		vboot-utils
 Version:	20130222gite6cf2c2
-Release:	3
+Release:	4
 Summary:	Verified Boot Utility from Chromium OS
 ExclusiveArch:	%{arm} %{ix86} x86_64
 
