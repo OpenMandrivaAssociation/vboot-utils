@@ -1,3 +1,6 @@
+%define _disable_lto 1
+%define _disable_rebuild_configure 1
+
 Name:		vboot-utils
 Version:	20130222gite6cf2c2
 Release:	6
