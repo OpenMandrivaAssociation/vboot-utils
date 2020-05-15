@@ -1,0 +1,13 @@
+diff -up vboot-utils-595108c0/futility/futility.h.me vboot-utils-595108c0/futility/futility.h
+--- vboot-utils-595108c0/futility/futility.h.me	2020-02-27 15:17:14.991440799 +0100
++++ vboot-utils-595108c0/futility/futility.h	2020-02-27 15:17:48.392751737 +0100
+@@ -40,7 +40,7 @@ enum vboot_version  {
+ };
+ 
+ /* What's our preferred API & data format? */
+-enum vboot_version vboot_version;
++extern enum vboot_version vboot_version;
+ 
+ /* Here's a structure to define the commands that futility implements. */
+ struct futil_cmd_t {
+diff -up vboot-utils-595108c0/tests/vboot_common_tests.c.me vboot-utils-595108c0/tests/vboot_common_tests.c
