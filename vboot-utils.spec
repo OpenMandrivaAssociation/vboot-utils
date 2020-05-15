@@ -8,7 +8,7 @@ Summary:	Verified Boot Utility from Chromium OS
 License:	BSD
 URL:		https://chromium.googlesource.com/chromiumos/platform/vboot_reference
 
-ExclusiveArch:	%{arm} aarch64 %{ix86} x86_64
+ExclusiveArch:	%{arm} aarch64 %{ix86} %{x86_64}
 
 # The source for this package was pulled from upstream's vcs.  Use the
 # following commands to generate the tarball:
@@ -41,7 +41,7 @@ Pack and sign the kernel, manage gpt partitions.
 %global ARCH arm
 %endif
 
-%ifarch x86_64
+%ifarch %{x86_64}
 %global ARCH x86_64
 %endif
 
