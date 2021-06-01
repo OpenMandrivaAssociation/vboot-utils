@@ -2,7 +2,7 @@
 
 Name:		vboot-utils
 Version:	20190823
-Release:	4.git%{gitshort}%{?dist}
+Release:	5.git%{gitshort}.1
 Group:		System/Kernel and hardware
 Summary:	Verified Boot Utility from Chromium OS
 License:	BSD
@@ -18,12 +18,12 @@ ExclusiveArch:	%{arm} aarch64 %{ix86} %{x86_64}
 Source0:	%{name}-%{gitshort}.tar.xz
 
 # Fix FTBFS agsinst gcc10
-Patch0:		vboot-utils-595108c0-gcc10.patch
+Patch0:		https://src.fedoraproject.org/rpms/vboot-utils/raw/rawhide/f/vboot-utils-595108c0-gcc10.patch
 
 BuildRequires:	glibc-static-devel
-BuildRequires:	openssl-devel
+BuildRequires:	pkgconfig(openssl)
 BuildRequires:	trousers-devel
-BuildRequires:	yaml-devel
+BuildRequires:	pkgconfig(liblzma)
 BuildRequires:	pkgconfig(liblzma)
 BuildRequires:	pkgconfig(uuid)
 
@@ -31,12 +31,10 @@ BuildRequires:	pkgconfig(uuid)
 Verified boot is a collection of utilities helpful for chromebook computer.
 Pack and sign the kernel, manage gpt partitions.
 
-
 %prep
 %autosetup -p1 -n %{name}-%{gitshort}
 
 %build
-
 %ifarch %{arm} aarch64
 %global ARCH arm
 %endif
@@ -49,17 +47,14 @@ Pack and sign the kernel, manage gpt partitions.
 %global ARCH i386
 %endif
 
-
-make V=1 ARCH=%{ARCH} COMMON_FLAGS="$RPM_OPT_FLAGS"
-
+make V=1 ARCH=%{ARCH} COMMON_FLAGS="%{optflags}"
 
 %install
-make install V=1 DESTDIR=%{buildroot}/usr ARCH=%{ARCH} COMMON_FLAGS="$RPM_OPT_FLAGS"
+make install V=1 DESTDIR=%{buildroot}/usr ARCH=%{ARCH} COMMON_FLAGS="%{optflags}"
 
 # Remove unneeded build artifacts
 rm -rf %{buildroot}/usr/lib/pkgconfig/
 rm -rf %{buildroot}/usr/default/
-
 
 %files
 %license LICENSE
