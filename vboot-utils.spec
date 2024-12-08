@@ -1,8 +1,8 @@
 %define gitshort 595108c0
 
 Name:		vboot-utils
-Version:	20190823
-Release:	5.git%{gitshort}.1
+Version:	20230127
+Release:	5.git%{gitshort}1
 Group:		System/Kernel and hardware
 Summary:	Verified Boot Utility from Chromium OS
 License:	BSD
