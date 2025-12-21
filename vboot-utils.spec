@@ -20,6 +20,7 @@ Source0:	%{name}-%{gitshort}.tar.xz
 # Fix FTBFS agsinst gcc10
 Patch0:		https://src.fedoraproject.org/rpms/vboot-utils/raw/rawhide/f/vboot-utils-595108c0-gcc10.patch
 
+BuildRequires:	make
 BuildRequires:	glibc-static-devel
 BuildRequires:	pkgconfig(openssl)
 BuildRequires:	trousers-devel
