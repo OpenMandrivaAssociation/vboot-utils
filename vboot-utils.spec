@@ -2,7 +2,7 @@
 
 Name:		vboot-utils
 Version:	20230127
-Release:	5.git%{gitshort}1
+Release:	5.git%{gitshort}2
 Group:		System/Kernel and hardware
 Summary:	Verified Boot Utility from Chromium OS
 License:	BSD
